@@ -1,5 +1,3 @@
-
-import { autocompletes } from "./autocomplete"
 import { Routes } from 'discord-api-types/v9'
 import { Client, Intents } from "discord.js"
 import { Command } from "./util/Command"
@@ -70,14 +68,6 @@ client.on("ready", () => {
                 const command = cmds[interaction.commandName]
                 command.execute(interaction)
             }
-        } else if (interaction.isAutocomplete()) {
-            console.log(interaction.commandName)
-            if (interaction.commandName in autocompletes) {
-                interaction.respond(autocompletes[interaction.commandName])
-            } else {
-                interaction.respond([])
-            }
-
         }
     })
 })
